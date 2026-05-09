@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr-CM">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parli Access | Assemblée Nationale du Cameroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nationalGreen: '#007A5E',
+                        nationalRed: '#CE1126',
+                        nationalYellow: '#FCD116',
+                        govSlate: '#0F172A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .serif-title { font-family: 'Crimson Pro', serif; }
+        
+        /* Low-bandwidth optimization: hide heavy icons on slow connections */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 leading-normal">
+
+    <!-- BILINGUAL HEADER & UTILITY -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="bg-govSlate text-white py-1.5 px-4 text-[10px] font-bold tracking-widest flex justify-between uppercase">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-building-columns mr-2"></i> République du Cameroun</span>
+                <span class="hidden md:inline text-slate-500">|</span>
+                <span class="hidden md:inline italic text-slate-400">Peace – Work – Fatherland</span>
+            </div>
+            <div class="flex gap-4 items-center">
+                <button class="hover:text-nationalYellow transition">FRANÇAIS</button>
+                <span class="text-slate-700">|</span>
+                <button class="text-nationalYellow">ENGLISH</button>
+            </div>
+        </div>
+
+        <nav class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-12 h-12 bg-nationalGreen rounded-full flex items-center justify-center p-2 shadow-lg shadow-green-900/20">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Coat_of_arms_of_Cameroon.svg/100px-Coat_of_arms_of_Cameroon.svg.png" alt="Coat of Arms">
+                </div>
+                <div>
+                    <h1 class="serif-title text-2xl font-bold text-govSlate leading-none tracking-tight">PARLI ACCESS</h1>
+                    <p class="text-[10px] font-bold text-nationalGreen uppercase tracking-widest mt-1">Assemblée Nationale du Cameroun</p>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 text-[13px] font-bold text-slate-600">
+                <a href="#laws" class="hover:text-nationalGreen transition">BILLS & LAWS</a>
+                <a href="#mps" class="hover:text-nationalGreen transition">THE 180 DEPUTIES</a>
+                <a href="#committees" class="hover:text-nationalGreen transition">COMMITTEES</a>
+                <a href="#participation" class="px-4 py-2 bg-nationalGreen text-white rounded-md hover:bg-opacity-90 shadow-md transition">PARTICIPATE</a>
+            </div>
+
+            <button class="lg:hidden text-govSlate text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </nav>
+    </header>
+
+    <!-- HERO: SEARCH & MISSION -->
+    <section class="relative bg-white pt-12 pb-24 overflow-hidden border-b">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="inline-block px-4 py-1 rounded-full bg-green-50 text-nationalGreen text-[11px] font-bold uppercase mb-6 tracking-widest border border-green-100">
+                    SDG 16: Peace, Justice and Strong Institutions
+                </span>
+                <h2 class="serif-title text-4xl md:text-6xl font-bold text-govSlate mb-6 leading-tight">
+                    Transparent Access to <br> <span class="text-nationalGreen underline decoration-nationalYellow">Legislative Governance</span>
+                </h2>
+                
+                <!-- AI POWERED SEARCH -->
+                <div class="mt-10 max-w-2xl mx-auto">
+                    <div class="relative group">
+                        <input type="text" placeholder="Search bills (e.g. Finance Law 2024)..." 
+                            class="w-full pl-14 pr-32 py-5 rounded-2xl border-2 border-slate-100 bg-slate-50 focus:bg-white focus:border-nationalGreen outline-none transition-all shadow-xl shadow-slate-200/50 text-slate-800">
+                        <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-nationalGreen transition"></i>
+                        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-govSlate text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-black transition">
+                            SEARCH
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-3 mt-4 text-[11px] font-bold text-slate-400 uppercase">
+                        <span>Trending:</span>
+                        <a href="#" class="hover:text-nationalGreen">#HealthSectorReform</a>
+                        <a href="#" class="hover:text-nationalGreen">#StartupAct</a>
+                        <a href="#" class="hover:text-nationalGreen">#StandingOrders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="container mx-auto px-4 -mt-12 relative z-20 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT COLUMN: BILLS & ACTIVITY -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- BILL TRACKER COMPONENT -->
+                <section id="laws" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="serif-title text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-scroll text-nationalGreen"></i> Live Bill Monitor
+                        </h3>
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Active Session: June 2024</span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Bill Item -->
+                        <div class="group cursor-pointer p-4 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-200">
+                            <div class="flex justify-between mb-4">
+                                <div>
+                                    <span class="text-[10px] font-black text-white bg-nationalRed px-2 py-0.5 rounded mr-2 uppercase tracking-tighter">Priority</span>
+                                    <h4 class="font-bold text-slate-900 group-hover:text-nationalGreen transition mt-1">Draft Law N° 1025/PJL/AN: Protection of Local Content in Extractive Industries</h4>
+                                </div>
+                                <span class="text-xs text-slate-400 font-medium">Updated 2h ago</span>
+                            </div>
+                            
+                            <!-- Visual Progress Bar -->
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden flex">
+                                    <div class="w-1/4 bg-nationalGreen h-full border-r border-white"></div>
+                                    <div class="w-1/4 bg-nationalGreen h-full border-r border-white"></div>
+                                    <div class="w-1/4 bg-nationalYellow h-full animate-pulse border-r border-white"></div>
+                                    <div class="w-1/4 bg-slate-200 h-full"></div>
+                                </div>
+                                <span class="text-[10px] font-bold text-nationalGreen uppercase">Committee Review</span>
+                            </div>
+
+                            <div class="flex items-center gap-6">
+                                <div class="flex -space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white"></div>
+                                    <div class="w-6 h-6 rounded-full bg-slate-300 border-2 border-white"></div>
+                                </div>
+                                <p class="text-xs text-slate-500">12 MPs currently debating in the <span class="font-bold">Production Committee</span>.</p>
+                                <button class="ml-auto text-[11px] font-bold text-nationalGreen hover:underline">SUBMIT FEEDBACK <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+
+                        <hr class="my-6 border-slate-50">
+
+                        <button class="w-full py-4 text-sm font-bold text-slate-400 hover:text-nationalGreen transition border-2 border-dashed border-slate-100 rounded-xl">
+                            VIEW ARCHIVE (1,450 LAWS SINCE 1960)
+                        </button>
+                    </div>
+                </section>
+
+                <!-- CITIZEN ENGAGEMENT: THE AGORA -->
+                <section id="participation" class="bg-govSlate text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="serif-title text-2xl font-bold mb-2">Write to your Representative</h3>
+                        <p class="text-slate-400 text-sm mb-8 max-w-md">Your message will be securely routed to the MP of your constituency. Track response rates in real-time.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <select class="bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 ring-nationalYellow outline-none">
+                                <option>Select Region (Région)</option>
+                                <option>Far North / Extrême-Nord</option>
+                                <option>South West / Sud-Ouest</option>
+                                <option>Centre</option>
+                            </select>
+                            <input type="email" placeholder="Your Email Address" class="bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 ring-nationalYellow outline-none">
+                            <textarea placeholder="How can the National Assembly support your community's development priorities?" class="bg-slate-800 border-none rounded-xl px-4 py-3 text-sm h-32 md:col-span-2 focus:ring-2 ring-nationalYellow outline-none"></textarea>
+                        </div>
+                        <button class="mt-6 w-full md:w-auto bg-nationalYellow text-govSlate px-8 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-white transition">
+                            SEND MESSAGE SECURELY
+                        </button>
+                    </div>
+                    <!-- Decorative Graphic -->
+                    <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-envelope-open-text text-[200px]"></i>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN: MP DIRECTORY & AI -->
+            <div class="lg:col-span-4 space-y-8">
+                
+                <!-- STANDING ORDERS QUICK GUIDE -->
+                <div class="bg-nationalYellow/10 border border-nationalYellow/20 rounded-2xl p-6">
+                    <h4 class="font-bold text-govSlate flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-book-open"></i> The Standing Orders
+                    </h4>
+                    <p class="text-xs text-slate-600 mb-4 italic leading-relaxed">
+                        "The National Assembly shall represent the entire nation." - Art. 1
+                    </p>
+                    <a href="#" class="text-xs font-bold text-govSlate bg-nationalYellow px-4 py-2 rounded-lg inline-block hover:shadow-lg transition">
+                        SIMPLIFIED GUIDE (PDF)
+                    </a>
+                </div>
+
+                <!-- MP DIRECTORY MINI -->
+                <section id="mps" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                    <h3 class="serif-title text-xl font-bold mb-6">Directory</h3>
+                    <div class="space-y-4">
+                        <!-- MP Card -->
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 bg-slate-100 rounded-full border-2 border-white shadow-sm overflow-hidden flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1540562514872-85231df3ad04?w=100&h=100&fit=crop" alt="MP" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-bold text-slate-900 truncate group-hover:text-nationalGreen transition">Hon. Ibrahim K.</h4>
+                                <p class="text-[10px] text-slate-400 font-medium uppercase">Mayo-Tsanaga, Far North</p>
+                            </div>
+                            <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
+                        </div>
+                        <div class="flex items-center gap-4 group border-t border-slate-50 pt-4">
+                            <div class="w-12 h-12 bg-slate-100 rounded-full border-2 border-white shadow-sm overflow-hidden flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="MP" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-bold text-slate-900 truncate group-hover:text-nationalGreen transition">Hon. Mary N.</h4>
+                                <p class="text-[10px] text-slate-400 font-medium uppercase">Mezam, North West</p>
+                            </div>
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                        </div>
+                    </div>
+                    <button class="w-full mt-6 py-3 text-[11px] font-bold text-slate-500 bg-slate-50 rounded-lg hover:bg-slate-100 transition">
+                        BROWSE ALL 180 DEPUTIES
+                    </button>
+                </section>
+
+                <!-- PARLIAMENTARY MEDIA -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <div class="bg-nationalRed p-4 text-white">
+                        <h4 class="font-bold text-sm uppercase tracking-widest flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> CNA Live TV
+                        </h4>
+                    </div>
+                    <div class="aspect-video bg-black flex items-center justify-center relative group cursor-pointer">
+                        <i class="fa-solid fa-play text-4xl text-white opacity-80 group-hover:scale-125 transition"></i>
+                        <p class="absolute bottom-4 left-4 text-[10px] text-white font-bold bg-black/50 px-2 py-1 rounded">Plenary Sitting: 24/06/2024</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FLOATING AI ASSISTANT -->
+    <div id="ai-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <div id="ai-window" class="hidden w-[350px] h-[500px] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden mb-4 flex-col">
+            <div class="bg-nationalGreen p-5 text-white flex justify-between items-center shadow-lg">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm">ParliAI <span class="text-[10px] bg-nationalYellow text-govSlate px-1.5 py-0.5 rounded ml-1">BETA</span></p>
+                        <p class="text-[10px] text-white/70">Institutional Knowledge Bot</p>
+                    </div>
+                </div>
+                <button onclick="toggleAI()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div id="ai-messages" class="flex-1 overflow-y-auto p-5 space-y-4 text-[13px] bg-slate-50/50">
+                <div class="bg-white border border-slate-200 p-3 rounded-2xl shadow-sm text-slate-700">
+                    Hello! I am your institutional assistant. I can summarize bills, find committee schedules, or explain the **Standing Orders** of the National Assembly. How can I serve you?
+                </div>
+            </div>
+
+            <div class="p-4 bg-white border-t border-slate-100 flex gap-2">
+                <input type="text" id="ai-input" placeholder="Ask about a law..." 
+                    class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 ring-nationalGreen transition">
+                <button onclick="sendMessage()" class="bg-nationalGreen text-white w-12 h-12 rounded-xl flex items-center justify-center hover:bg-govSlate transition shadow-lg shadow-green-900/20">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+        <button onclick="toggleAI()" class="w-16 h-16 bg-govSlate text-nationalYellow rounded-2xl shadow-2xl flex items-center justify-center text-2xl hover:scale-105 transition-all group">
+            <i class="fa-solid fa-microchip group-hover:rotate-12 transition"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-govSlate text-white py-20 border-t-8 border-nationalGreen">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Coat_of_arms_of_Cameroon.svg/100px-Coat_of_arms_of_Cameroon.svg.png" class="h-6 opacity-80" alt="Arms">
+                    </div>
+                    <span class="serif-title text-xl font-bold tracking-widest uppercase">Parli Access</span>
+                </div>
+                <p class="text-slate-400 text-sm max-w-sm leading-relaxed">
+                    Connecting the citizens of Cameroon to the heart of their democracy. This platform is an official instrument of the National Assembly for transparency, engagement, and responsible governance.
+                </p>
+                <div class="mt-8 flex gap-6 text-slate-500 uppercase text-[10px] font-bold tracking-widest">
+                    <a href="#" class="hover:text-nationalYellow">Transparency Notice</a>
+                    <a href="#" class="hover:text-nationalYellow">Open Data API</a>
+                    <a href="#" class="hover:text-nationalYellow">Privacy Policy</a>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h5 class="text-xs font-black uppercase text-slate-500 tracking-[0.2em] mb-6">Explore</h5>
+                <ul class="text-sm space-y-3 text-slate-300">
+                    <li><a href="#" class="hover:text-nationalYellow transition">Current Bill Progress</a></li>
+                    <li><a href="#" class="hover:text-nationalYellow transition">Hansard Records</a></li>
+                    <li><a href="#" class="hover:text-nationalYellow transition">Committee Reports</a></li>
+                    <li><a href="#" class="hover:text-nationalYellow transition">Parliamentary Calendar</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h5 class="text-xs font-black uppercase text-slate-500 tracking-[0.2em] mb-6">Institutional Address</h5>
+                <p class="text-sm text-slate-300 italic">
+                    Palais des Verres de Ngoa-Ekellé<br>
+                    BP 29, Yaoundé<br>
+                    Republic of Cameroon
+                </p>
+                <p class="text-sm font-bold text-nationalYellow mt-4">support.parli@assembleenationale.cm</p>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 mt-20 pt-8 border-t border-slate-800 text-center">
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                © 2024 National Assembly of Cameroon | Engineered for Accountability
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAI() {
+            const win = document.getElementById('ai-window');
+            win.classList.toggle('hidden');
+            win.classList.toggle('flex');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('ai-input');
+            const messages = document.getElementById('ai-messages');
+            
+            if (input.value.trim() === '') return;
+
+            // User Message
+            messages.innerHTML += `
+                <div class="bg-govSlate text-white p-3 rounded-2xl ml-8 shadow-md">
+                    ${input.value}
+                </div>
+            `;
+
+            const query = input.value.toLowerCase();
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            // Simulated RAG AI Logic
+            setTimeout(() => {
+                let response = "Searching the official legislative archive...";
+                
+                if (query.includes('bill') || query.includes('law') || query.includes('projet')) {
+                    response = "I found 3 active bills for the June session. The most advanced is the **Extractive Industries Local Content Bill** (N° 1025), which completed its second reading yesterday.";
+                } else if (query.includes('mp') || query.includes('deputy')) {
+                    response = "You can find your MP by region. The National Assembly has 180 deputies representing all divisions. Use the 'Directory' tab above to find contact details.";
+                } else if (query.includes('sdg')) {
+                    response = "Parli Access supports **SDG 16.6**: 'Develop effective, accountable and transparent institutions at all levels.'";
+                } else {
+                    response = "As an official assistant, I only provide verified information. Please ask about bills, MPs, or parliamentary procedures.";
+                }
+
+                messages.innerHTML += `
+                    <div class="bg-white border border-slate-200 p-3 rounded-2xl shadow-sm text-slate-700 italic border-l-4 border-l-nationalGreen">
+                        ${response}
+                    </div>
+                `;
+                messages.scrollTop = messages.scrollHeight;
+            }, 800);
+        }
+
+        // Enter key support for AI
+        document.getElementById('ai-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
